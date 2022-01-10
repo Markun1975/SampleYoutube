@@ -1,24 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6gC-Mq-TgQ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--ショート-->
+        <scene sceneID="ONX-S0-saa">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="qmW-4w-6tq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UKM-r7-XFb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="YlP-4e-xv3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="ショート" image="video.fill" catalog="system" id="K3H-2g-plk"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VXu-pc-cjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1045" y="-407"/>
+        </scene>
+        <!--登録チャンネル-->
+        <scene sceneID="6Mh-6h-PhT">
+            <objects>
+                <viewController id="9mI-5M-e8V" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BrG-9b-zhQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="z7J-DU-wS4"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="登録チャンネル" image="play.rectangle.on.rectangle.fill" catalog="system" id="c3l-bm-Wtj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N7o-Sm-dMA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045" y="271"/>
+        </scene>
+        <!--ライブラリ-->
+        <scene sceneID="FRZ-KI-I2g">
+            <objects>
+                <viewController id="p9L-Bs-lFQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nsc-2x-gSk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="ich-ev-L1e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ライブラリ" image="square.on.square.fill" catalog="system" id="f8b-qa-EkS"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g1R-IA-Ur3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045" y="1134"/>
+        </scene>
+        <!--ホーム-->
+        <scene sceneID="qt0-Dv-pr9">
+            <objects>
+                <viewController id="MNf-Co-mSS" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KVP-iN-R4d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="mv7-4M-STT"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" id="nNf-yq-eVR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YJB-4n-xct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="-1170"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="UqL-gp-CnF">
+            <objects>
+                <tabBarController id="6gC-Mq-TgQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9g3-1p-mW2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MNf-Co-mSS" kind="relationship" relationship="viewControllers" id="jDy-jD-ZjI"/>
+                        <segue destination="qmW-4w-6tq" kind="relationship" relationship="viewControllers" id="7Wu-LV-xHw"/>
+                        <segue destination="9mI-5M-e8V" kind="relationship" relationship="viewControllers" id="3x3-Ul-Hhq"/>
+                        <segue destination="p9L-Bs-lFQ" kind="relationship" relationship="viewControllers" id="Fat-2N-3T9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUJ-Lt-hmD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="124" y="-125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="play.rectangle.on.rectangle.fill" catalog="system" width="128" height="97"/>
+        <image name="square.on.square.fill" catalog="system" width="128" height="113"/>
+        <image name="video.fill" catalog="system" width="128" height="82"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
