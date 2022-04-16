@@ -6,3 +6,17 @@
 //
 
 import Foundation
+import UIKit
+
+class Video: NSObject{
+//    var title: String
+//    var description: String
+//    var iconImage: UIImage
+//    var thumbnail: UIImage
+//    
+//    init(title: String, description: String, iconImage: UIImage, thumbnail: UIImage) {
+//        self.title = title as String
+//        self.description = description as String
+//        
+//    }
+}
