@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JrP-gi-bB4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" customClass="HomeViewController" customModule="SampleYoutube" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,13 +30,47 @@
                             <constraint firstItem="fMR-eD-axI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="qxt-vT-2E2"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="fMR-eD-axI" id="uJA-rr-vx7"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="575" y="108"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="lLh-9V-Bjb">
+            <objects>
+                <viewController id="JrP-gi-bB4" customClass="HomeViewController" customModule="SampleYoutube" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Js5-dI-gKv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cq8-bS-n1o">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gzT-3a-j3U">
+                                    <size key="itemSize" width="414" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6cM-vi-Pgx"/>
+                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cq8-bS-n1o" secondAttribute="bottom" id="6n7-r5-CbX"/>
+                            <constraint firstItem="cq8-bS-n1o" firstAttribute="trailing" secondItem="6cM-vi-Pgx" secondAttribute="trailing" id="Csa-2a-hq6"/>
+                            <constraint firstItem="cq8-bS-n1o" firstAttribute="leading" secondItem="6cM-vi-Pgx" secondAttribute="leading" id="ZgR-Si-LeE"/>
+                            <constraint firstItem="cq8-bS-n1o" firstAttribute="top" secondItem="6cM-vi-Pgx" secondAttribute="top" id="dWG-za-Uae"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="cq8-bS-n1o" id="ekj-dD-H0q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bbW-X1-J5Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1446.376811594203" y="107.8125"/>
         </scene>
     </scenes>
     <resources>

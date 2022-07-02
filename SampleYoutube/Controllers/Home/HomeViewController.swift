@@ -7,31 +7,38 @@
 
 import UIKit
 
-class HomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        tableView.backgroundColor = .red
-        tableView.register(UINib(nibName: "VideoTableViewCell", bundle: nil), forCellReuseIdentifier: "videoTableViewCell")
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.backgroundColor = .red
+        collectionView.register(UINib(nibName: "VideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "videoCollectionViewCell")
+        
+        // レイアウト設定
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 0
+        layout.itemSize = CGSize(width: collectionView.frame.width, height: 300)
+        collectionView.collectionViewLayout = layout
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 3
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "videoTableViewCell", for: indexPath) as! VideoTableViewCell
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCollectionViewCell", for: indexPath) as! VideoCollectionViewCell
+        
+//        if let cell = cell as? VideoCollectionViewCell {
+//            cell.setupCell(model: models[indexPath.row])
+//        }
+
         cell.backgroundColor = .systemBlue
         cell.thumbnailImageView.backgroundColor = UIColor.brown
         cell.bindData(image: "SampleIcon")
