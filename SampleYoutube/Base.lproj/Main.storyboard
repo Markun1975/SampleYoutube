@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VXu-pc-cjp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="-407"/>
+            <point key="canvasLocation" x="1871" y="-240"/>
         </scene>
         <!--登録チャンネル-->
         <scene sceneID="6Mh-6h-PhT">
@@ -45,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N7o-Sm-dMA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="270.53571428571428"/>
+            <point key="canvasLocation" x="1871" y="398"/>
         </scene>
         <!--ライブラリ-->
         <scene sceneID="FRZ-KI-I2g">
@@ -61,35 +62,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g1R-IA-Ur3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1045" y="1134"/>
-        </scene>
-        <!--ホーム-->
-        <scene sceneID="qt0-Dv-pr9">
-            <objects>
-                <viewController id="MNf-Co-mSS" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="KVP-iN-R4d">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="L3H-uP-d1i">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="mv7-4M-STT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="L3H-uP-d1i" firstAttribute="trailing" secondItem="mv7-4M-STT" secondAttribute="trailing" id="BFR-pa-2OE"/>
-                            <constraint firstItem="L3H-uP-d1i" firstAttribute="top" secondItem="mv7-4M-STT" secondAttribute="top" id="P4I-ko-hm7"/>
-                            <constraint firstAttribute="bottom" secondItem="L3H-uP-d1i" secondAttribute="bottom" id="oNz-RY-xd6"/>
-                            <constraint firstItem="L3H-uP-d1i" firstAttribute="leading" secondItem="mv7-4M-STT" secondAttribute="leading" id="qa3-mH-WBR"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="ホーム" image="house.fill" catalog="system" id="nNf-yq-eVR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YJB-4n-xct" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1044.9275362318842" y="-1170.5357142857142"/>
+            <point key="canvasLocation" x="1870" y="1183"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UqL-gp-CnF">
@@ -101,22 +74,44 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="MNf-Co-mSS" kind="relationship" relationship="viewControllers" id="jDy-jD-ZjI"/>
-                        <segue destination="qmW-4w-6tq" kind="relationship" relationship="viewControllers" id="7Wu-LV-xHw"/>
-                        <segue destination="9mI-5M-e8V" kind="relationship" relationship="viewControllers" id="3x3-Ul-Hhq"/>
-                        <segue destination="p9L-Bs-lFQ" kind="relationship" relationship="viewControllers" id="Fat-2N-3T9"/>
+                        <segue destination="pON-B1-dd3" kind="relationship" relationship="viewControllers" id="3Q4-Hr-kQg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hUJ-Lt-hmD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="124" y="-125"/>
         </scene>
+        <!--Home-->
+        <scene sceneID="BzS-dA-3sG">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="pON-B1-dd3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" id="zEa-V7-yIx" userLabel="ホーム">
+                        <imageReference key="image" image="house" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xEp-pF-LgR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="-445"/>
+        </scene>
+        <!--Short-->
+        <scene sceneID="AwZ-3g-i7j">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Short" id="TH7-6e-AeH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ショート" id="qSz-BY-ZcJ">
+                        <imageReference key="image" image="play" catalog="system" symbolScale="default"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwp-ie-bcY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="826" y="-201"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="house.fill" catalog="system" width="32" height="32"/>
-        <image name="play.rectangle.on.rectangle.fill" catalog="system" width="32" height="32"/>
-        <image name="square.on.square.fill" catalog="system" width="32" height="32"/>
-        <image name="video.fill" catalog="system" width="32" height="32"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="play" catalog="system" width="120" height="128"/>
+        <image name="play.rectangle.on.rectangle.fill" catalog="system" width="128" height="97"/>
+        <image name="square.on.square.fill" catalog="system" width="128" height="113"/>
+        <image name="video.fill" catalog="system" width="128" height="82"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
