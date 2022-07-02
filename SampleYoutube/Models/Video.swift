@@ -9,14 +9,19 @@ import Foundation
 import UIKit
 
 class Video: NSObject{
-//    var title: String
-//    var description: String
-//    var iconImage: UIImage
-//    var thumbnail: UIImage
-//    
-//    init(title: String, description: String, iconImage: UIImage, thumbnail: UIImage) {
-//        self.title = title as String
-//        self.description = description as String
-//        
-//    }
+    var title: String
+    var descriptionStr: String
+    var iconURL: String
+    var thumbnailURL: String
+    
+    init(title: String, description: String, iconURL: String, thumbnailURL: String) {
+        self.title = title as String
+        self.descriptionStr = description as String
+        self.iconURL = iconURL as String
+        self.thumbnailURL = thumbnailURL as String
+    }
+    
+    func setJsonData(jsonData: NSDictionary, error: NSError) {
+        
+    }
 }
