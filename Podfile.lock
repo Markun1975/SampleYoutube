@@ -1,4 +1,9 @@
 PODS:
+  - google-cast-sdk-no-bluetooth (4.7.0):
+    - google-cast-sdk-no-bluetooth/Core (= 4.7.0)
+    - Protobuf (~> 3.13)
+  - google-cast-sdk-no-bluetooth/Core (4.7.0):
+    - Protobuf (~> 3.13)
   - MaterialComponents/AnimationTiming (124.2.0)
   - MaterialComponents/Availability (124.2.0)
   - MaterialComponents/Buttons (124.2.0):
@@ -49,25 +54,31 @@ PODS:
     - MDFTextAccessibility
   - MDFInternationalization (3.0.0)
   - MDFTextAccessibility (2.0.1)
+  - Protobuf (3.21.5)
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
+  - google-cast-sdk-no-bluetooth
   - MaterialComponents/Buttons
   - SnapKit (~> 5.0.0)
 
 SPEC REPOS:
   trunk:
+    - google-cast-sdk-no-bluetooth
     - MaterialComponents
     - MDFInternationalization
     - MDFTextAccessibility
+    - Protobuf
     - SnapKit
 
 SPEC CHECKSUMS:
+  google-cast-sdk-no-bluetooth: 5313156110d6e71fa336f6d742f1ee641e91fdca
   MaterialComponents: 1a9b2d9d45b1601ae544de85089adc4c464306d4
   MDFInternationalization: d697c55307816222a55685c4ccb1044ffb030c12
   MDFTextAccessibility: f4bb4cc2194286651b59a215fdeaa0e05dc90ba5
+  Protobuf: 7504b04fffcf6662ad629694db8231f5e744327f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: 2d5a8fbb0d6f4f5d8a6de0ca26d787ec878cbaaa
+PODFILE CHECKSUM: 6c0eb4265727738c1a3170b36a523a3ef787d4ce
 
 COCOAPODS: 1.11.0

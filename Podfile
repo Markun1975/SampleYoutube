@@ -8,5 +8,6 @@ target 'SampleYoutube' do
   # Pods for SampleYoutube
  pod 'MaterialComponents/Buttons'
  pod 'SnapKit', '~> 5.0.0'
+ pod 'google-cast-sdk-no-bluetooth'
 
 end
