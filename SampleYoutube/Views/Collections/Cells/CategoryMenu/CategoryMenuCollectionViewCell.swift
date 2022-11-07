@@ -11,27 +11,35 @@ import SnapKit
 class CategoryMenuCollectionViewCell: UICollectionViewCell {
     static let reuseIdentifier: String = "categoryMenuCollectionViewCell"
     
-    private var button: UIButton!
+    let buttonfontSize:CGFloat = 12
+    var isGenre = true
+    
+    var button:UIButton = UIButton()
     
     override func prepareForReuse() {
-        button.titleLabel?.text = ""
-        button.titleLabel?.textColor = .clear
+        super.prepareForReuse()
+        // Buttonの初期化
+        self.button = UIButton()
+        self.button.backgroundColor = .clear
+        self.button.setTitle("", for: .normal)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        button = UIButton.init()
-        button.backgroundColor = .red
-        button.titleLabel?.text = "aaa"
-        button.titleLabel?.textColor = .black
-        self.addSubview(button)
-        button.snp.makeConstraints { [weak self] make in
-            make.top.bottom.left.right.equalToSuperview().offset(5)
-        }
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        self.backgroundColor = .clear
+        self.button = UIButton.init(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        self.button.titleLabel?.font = UIFont.systemFont(ofSize: buttonfontSize)
+        self.button.layer.cornerRadius = 13.0
+        self.button.layer.borderWidth = 0.6
+        self.button.backgroundColor = UIColor.categoryMenuCellBackgroundColor
+        self.button.layer.borderColor = UIColor.categoryMenuCellBorderColor?.cgColor
+        self.button.setTitleColor(UIColor.textMainColor, for: .normal)
+        self.addSubview(button)
+        setConstraint()
     }
     
     override func awakeFromNib() {
@@ -40,7 +48,6 @@ class CategoryMenuCollectionViewCell: UICollectionViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        setConstraint()
 //        setColor(.default)
     }
     
@@ -51,39 +58,20 @@ class CategoryMenuCollectionViewCell: UICollectionViewCell {
     }
     
     func setConstraint() {
-//        let inset = BRUtils.getSideInset(ofWidth: UIApplication.shared.keyWindow!.frame.size.width)
-//        marginCollection.forEach { constraint in
-//            constraint.constant = inset
-//        }
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            trailingMarginCollection.forEach { constraint in
-//                constraint.constant = inset
-//            }
-//        }
-//        dividerHeight.constant = 1.f / UIScreen.main.scale
+        self.button.snp.remakeConstraints { make in
+            make.top.left.bottom.right.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 10, bottom: 15, right: 10))
+        }
+//        self.addSubview(self.button)
     }
     
     func setColor(_ colorMode: UIColor) {
-//        rippleView.rippleColor = BRColor.tapEffectGrayBackgroundColor()
-//        rippleView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        thumbnailView.backgroundColor = BRColor.buttonSubColorBackgroundColor()
-//        thumbnailView.contentMode = .scaleAspectFill
-//        thumbnailView.layer.cornerRadius = BRConstants.getArtworkImageCornerRadius()
-//        thumbnailView.clipsToBounds = true
-//        titleLabel.textColor = BRColor.baseTextMainColor()
-//        authorImageView.image = UIImage.init(named: "favorite_list_author")!.tintedImage(with: BRColor.baseIconSubColor())
-//        authorLabel.textColor = BRColor.baseTextSubColor()
-//        arrowView.image = UIImage.init(named: "arrow-right-white")!.tintedImage(with: BRColor.baseIconMainColor())
-//        addListImageView.image = UIImage.init(named: "icon-more")?.tintedImage(with: BRColor.buttonSubColorIconColor())
-//        divider.backgroundColor = BRColor.baseBorderMainColor()
     }
     
-    func bindData(_ data: String) {
+    func bindData(_ data: String, isGenre:Bool) {
         if let _data = data as? Video {
-            
         }
-        
-        button.titleLabel?.text = data
+        button.setTitle(data, for: .normal)
+        self.button.layer.cornerRadius = (isGenre == false) ? 0.0 : 13.0
 //        if let _data = data as? BRUserPalette {
 //            titleLabel.text = _data.name
 //            if let _url = _data.theme?.thumbnailUrl {
@@ -100,6 +88,7 @@ class CategoryMenuCollectionViewCell: UICollectionViewCell {
 //            }
 //        }
     }
+    
     
     // MARK: - UIResponder method
     
@@ -118,3 +107,4 @@ class CategoryMenuCollectionViewCell: UICollectionViewCell {
         print("Cancelled")
     }
 }
+
