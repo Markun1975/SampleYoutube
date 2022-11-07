@@ -10,23 +10,27 @@ import SnapKit
 
 class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    private var collectionView = UICollectionView()
+    var collectionView: UICollectionView!
+    
+    var categoryTitles:[String] = ["探索","全て","ゲーム","音楽","ミックス","ライブ","観光"]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        collectionView = UICollectionView(frame: self.frame)
         
+        // レイアウト設定
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        collectionView.collectionViewLayout = layout
-//        collectionView = UICollectionView(frame: , collectionViewLayout: flowLayout)
-        collectionView.alwaysBounceVertical = false
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        collectionView.backgroundColor = .red
-        collectionView.register(CategoryMenuCollectionViewCell.self, forCellWithReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier)
-//        self.addSubview(collectionView)
+        layout.scrollDirection = .horizontal // 横スクロール
+        layout.minimumInteritemSpacing = 1
+        layout.itemSize = CGSize(width: frame.width / 5, height: frame.height)
+        var collection = UICollectionView(frame: frame, collectionViewLayout: layout)
+        
+        collection.delegate = self
+        collection.dataSource = self
+        collection.showsHorizontalScrollIndicator = false // スクロールバー非表示
+        collection.register(CategoryMenuCollectionViewCell.self, forCellWithReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier) //ジャンルのCellをセット
+//        collection.register(CategoryMenuCollectionViewCell.self, forCellWithReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier) //Cellをセット
+        self.collectionView = collection
+        self.addSubview(self.collectionView)
         setConstraints()
     }
     required init?(coder: NSCoder) {
@@ -50,13 +54,20 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
 
     // MARK: UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        1
+        categoryTitles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier, for: indexPath) as! CategoryMenuCollectionViewCell
-        cell.backgroundColor = .red
-        cell.bindData("サンプル")
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier, for: indexPath)
+        var genre = true
+        if categoryTitles[indexPath.row].contains("探索") {
+            genre = false
+        } else {
+            genre = true
+        }
+        if let cell = cell as? CategoryMenuCollectionViewCell {
+            cell.bindData(categoryTitles[indexPath.row],isGenre: genre)
+            }
         return cell
     }
 
