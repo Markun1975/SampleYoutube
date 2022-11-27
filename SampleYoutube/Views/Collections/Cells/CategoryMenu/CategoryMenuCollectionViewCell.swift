@@ -89,6 +89,10 @@ class CategoryMenuCollectionViewCell: UICollectionViewCell {
 //        }
     }
     
+    func getHeight() -> CGFloat {
+        return self.frame.height - 30.0
+    }
+    
     
     // MARK: - UIResponder method
     
