@@ -18,7 +18,7 @@ class HomeViewController: DefaultViewController, UICollectionViewDataSource, UIC
     var button: UIBarButtonItem!
     
     override func viewDidLoad() {
-            super.viewDidLoad()
+        super.viewDidLoad()
         
         self.homeStackView = UIStackView(frame: CGRect(x: 0, y: (navigationController?.navigationBar.frame.height)! * 2, width: self.view.frame.size.width, height: self.view.frame.size.height))
         
