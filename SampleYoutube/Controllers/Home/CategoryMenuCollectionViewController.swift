@@ -12,7 +12,7 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
     
     var collectionView: UICollectionView!
     
-    var categoryTitles:[String] = ["探索","全て","ゲーム","音楽","ミックス","ライブ","観光"]
+    var categoryTitles:[String] = ["探索","","全て","ゲーム","音楽","ミックス","ライブ","観光"]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,7 +28,7 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
         collection.dataSource = self
         collection.showsHorizontalScrollIndicator = false // スクロールバー非表示
         collection.register(CategoryMenuCollectionViewCell.self, forCellWithReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier) //ジャンルのCellをセット
-//        collection.register(CategoryMenuCollectionViewCell.self, forCellWithReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier) //Cellをセット
+        collection.register(CategoryMenuCollectionViewCell.self, forCellWithReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier) //Cellをセット
         self.collectionView = collection
         self.addSubview(self.collectionView)
         setConstraints()
@@ -36,10 +36,6 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     private func setConstraints() {
         collectionView.snp.makeConstraints { make in
@@ -58,6 +54,12 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        if categoryTitles[indexPath.row].isEmpty {
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMenuPartitionCollectionViewCell.reuseIdentifier, for: indexPath)
+////                cell.bindData(categoryTitles[indexPath.row],isGenre: false)
+//            return cell
+//        }
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier, for: indexPath)
         var genre = true
         if categoryTitles[indexPath.row].contains("探索") {
@@ -67,9 +69,27 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
         }
         if let cell = cell as? CategoryMenuCollectionViewCell {
             cell.bindData(categoryTitles[indexPath.row],isGenre: genre)
-            }
+            return cell
+        }
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 5, height: 100)
+    }
+    
+    // MARK: UICollectionViewDelegateFlowLayout
+//    // カスタムセルのサイズ
+//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//            return CGSize(width: self.collectionView.frame.size.width - 32, height: 200)
+//        }
+
+        // 各カスタムセル外枠の余白
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+
+            return UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
+        }
 
     // MARK: UICollectionViewDelegate
 
