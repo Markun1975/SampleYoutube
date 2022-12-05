@@ -22,7 +22,7 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
         layout.scrollDirection = .horizontal // 横スクロール
         layout.minimumInteritemSpacing = 1
         layout.itemSize = CGSize(width: frame.width / 5, height: frame.height)
-        var collection = UICollectionView(frame: frame, collectionViewLayout: layout)
+        let collection = UICollectionView(frame: frame, collectionViewLayout: layout)
         
         collection.delegate = self
         collection.dataSource = self
@@ -54,11 +54,6 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        if categoryTitles[indexPath.row].isEmpty {
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMenuPartitionCollectionViewCell.reuseIdentifier, for: indexPath)
-////                cell.bindData(categoryTitles[indexPath.row],isGenre: false)
-//            return cell
-//        }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryMenuCollectionViewCell.reuseIdentifier, for: indexPath)
         var genre = true
@@ -75,51 +70,12 @@ class CategoryMenuCollectionView: UIView, UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: 5, height: 100)
+        return CGSize(width: 5, height: 100)
     }
     
-    // MARK: UICollectionViewDelegateFlowLayout
-//    // カスタムセルのサイズ
-//        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//            return CGSize(width: self.collectionView.frame.size.width - 32, height: 200)
-//        }
-
-        // 各カスタムセル外枠の余白
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-
-            return UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
-        }
-
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    // 各カスタムセル外枠の余白
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }
