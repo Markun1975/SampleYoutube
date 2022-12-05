@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = (scene as? UIWindowScene) else { return }
         //      firstViewControllerは最初に表示される画面です(rootViewController)
-                let firstViewController = DefaultViewController()
+                let firstViewController = HomeViewController()
                 let navigationController = UINavigationController(rootViewController: firstViewController)
 
                 window = UIWindow(windowScene: scene)

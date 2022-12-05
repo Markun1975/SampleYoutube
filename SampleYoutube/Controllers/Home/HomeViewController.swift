@@ -6,34 +6,47 @@
 //
 
 import UIKit
+import GoogleCast
 
 let collectionViewHeight:Double = 300
 
-class HomeViewController: DefaultViewController, UICollectionViewDataSource, UICollectionViewDelegate{
-    @IBOutlet weak var collectionView: UICollectionView!
+class HomeViewController: DefaultViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    var homeStackView: UIStackView!
+    var collectionView: UICollectionView!
     
     var button: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        self.homeStackView = UIStackView(frame: CGRect(x: 0, y: (navigationController?.navigationBar.frame.height)! * 2, width: self.view.frame.size.width, height: self.view.frame.size.height))
         
-        collectionView.backgroundColor = .red
-        collectionView.register(UINib(nibName: "VideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "videoCollectionViewCell")
+        categoryMenuView = CategoryMenuCollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height / 15))
+        self.homeStackView.addSubview(categoryMenuView)
         
         // レイアウト設定
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 0
-        layout.itemSize = CGSize(width: collectionView.frame.width, height: collectionViewHeight)
-        collectionView.collectionViewLayout = layout
+        layout.itemSize = CGSize(width: self.view.frame.width, height: collectionViewHeight)
+        let collection = UICollectionView(frame: CGRect(x: 0, y: Int(self.view.frame.size.height / 15), width: Int(self.view.frame.size.width), height: Int(self.view.frame.size.height - (self.view.frame.size.height / 15))), collectionViewLayout: layout)
+        
+        collection.delegate = self
+        collection.dataSource = self
+        collection.register(UINib(nibName: "VideoCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "videoCollectionViewCell")
+        self.collectionView = collection
+        self.homeStackView.addSubview(self.collectionView)
         
         view.backgroundColor = .white
-        button = UIBarButtonItem(barButtonSystemItem: .fastForward, target: self, action: #selector(click))
-        navigationItem.rightBarButtonItem = button
+        
+        self.view.addSubview(homeStackView)
+        setNavigationBarItems()
     }
+    
+    override func setNavigationBarItems() {
+        super.setNavigationBarItems()
+    }
+    
     
     @objc func click() {
             let second = SearchViewController()
